@@ -11,5 +11,4 @@ todoMod.controller('todoCtrl', ['$scope', ($scope)->
                 $scope.input= ''
     $scope.todoRemove= (el)->
         $scope.todoList.splice(el, 1)
-#    return
 ])
