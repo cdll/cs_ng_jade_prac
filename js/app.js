@@ -9,19 +9,16 @@
       $scope.todoList = [];
       $scope.toList = function(e) {
         var _temp;
-        if (e.which === 13) {
+        if ((e.which === 13) && (!!$scope.input.trim())) {
           _temp = {
             content: $scope.input,
             checked: 0
           };
-          if (!!$scope.input.trim()) {
-            $scope.todoList.unshift(_temp);
-          }
+          $scope.todoList.push(_temp);
           return $scope.input = '';
         }
       };
       $scope.todoRemove = function(el) {
-        console.info(el);
         return $scope.todoList.splice(el, 1);
       };
     }
