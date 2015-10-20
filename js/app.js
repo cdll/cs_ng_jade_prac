@@ -14,7 +14,9 @@
             content: $scope.input,
             checked: 0
           };
-          $scope.todoList.unshift(_temp);
+          if (!!$scope.input.trim()) {
+            $scope.todoList.unshift(_temp);
+          }
           return $scope.input = '';
         }
       };
