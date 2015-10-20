@@ -3,10 +3,25 @@
 
   todoMod = angular.module('todoMod', []);
 
-  todoMod.controller('TodoCtrl', [
+  todoMod.controller('todoCtrl', [
     '$scope', function($scope) {
-      $scope.input = 'halo';
-      $scope.todoList = [1, 1, 1];
+      $scope.input = '';
+      $scope.todoList = [];
+      $scope.toList = function(e) {
+        var _temp;
+        if (e.which === 13) {
+          _temp = {
+            content: $scope.input,
+            checked: 0
+          };
+          $scope.todoList.unshift(_temp);
+          return $scope.input = '';
+        }
+      };
+      $scope.todoRemove = function(el) {
+        console.info(el);
+        return $scope.todoList.splice(el, 1);
+      };
     }
   ]);
 

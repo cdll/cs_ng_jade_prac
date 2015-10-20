@@ -1,6 +1,16 @@
 todoMod= angular.module 'todoMod', []
-todoMod.controller 'TodoCtrl', ['$scope', ($scope)->
-    $scope.input= 'halo'
-    $scope.todoList= [1,1,1]
+todoMod.controller 'todoCtrl', ['$scope', ($scope)->
+    $scope.input= ''
+    $scope.todoList= []
+    $scope.toList= (e)->
+        if e.which== 13
+            _temp=
+                content: $scope.input
+                checked: 0
+            $scope.todoList.unshift _temp
+            $scope.input= ''
+    $scope.todoRemove= (el)->
+        console.info el
+        $scope.todoList.splice(el, 1)
     return
 ]

@@ -1,14 +1,21 @@
 doctype html
-html(ng-app)
+html(ng-app='todoMod')
     head
         title= 'todoMVC'
         link(rel="stylesheet", href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        link(rel="stylesheet", href='/css/app.css')
         script(src='/node_modules/angular/angular.min.js')
         script(src='/js/app.js')
     body
-        .container-fuild(ng-controller='TodoCtrl')
-            h1.text-info.text-center Todos
-                input#todoInput.center-block(ng-model='input')
-            dl.todoList(ng-repeat='item in todoList')
-                dd.todoItem(ng-model='item')
+        .container-fuild(ng-controller='todoCtrl')
+            .col-xs-6.col-xs-offset-3
+                h1.text-info.text-center Todos
+                input#todoInput.col-xs-12(ng-model='input' ng-keydown='toList($event)' autofocus='autofocus')
+                dl.col-xs-12.todoList
+                    dd.row.todoItem(ng-repeat='item in todoList track by $index')
+                        h4
+                            lable.center-block.lable-ckbox
+                                input.col-xs-1.input-check(type='checkbox' ng-checked='item.checked')
+                                span.text-success(ng-bind='item.content')
+                                .col-xs-1.pull-right.delete-x(ng-click='todoRemove($index)') X
     
