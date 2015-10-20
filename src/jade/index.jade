@@ -15,7 +15,7 @@ html(ng-app='todoMod')
                     dd.row.todoItem(ng-repeat='item in todoList track by $index')
                         h4
                             lable.center-block.lable-ckbox
-                                input.col-xs-1.input-check(type='checkbox' ng-checked='item.checked')
+                                input.col-xs-1.input-check(type='checkbox' ng-model='item.checked')
                                 span.text-success(ng-bind='item.content')
                                 .col-xs-1.pull-right.delete-x(ng-click='todoRemove($index)') X
     

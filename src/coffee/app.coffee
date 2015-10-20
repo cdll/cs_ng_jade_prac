@@ -7,10 +7,10 @@ todoMod.controller('todoCtrl', ['$scope', ($scope)->
             _temp=
                 content: $scope.input
                 checked: 0
-            $scope.todoList.unshift _temp if !!$scope.input.trim()
+            $scope.todoList.unshift (_temp) if !!$scope.input.trim()
             $scope.input= ''
     $scope.todoRemove= (el)->
-        console.info el
+        console.info(el)
         $scope.todoList.splice(el, 1)
     return
 ])
