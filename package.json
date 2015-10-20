@@ -1,0 +1,24 @@
+{
+  "name": "coffee_ng_prac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-bootstrap": "^0.12.2",
+    "grunt": "^0.4.5",
+    "grunt-coffee": "0.0.6",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-jade": "^0.15.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jade": "^0.5.1",
+    "grunt-watch-change": "^0.1.1",
+    "tailored-grunt-jade": "^0.3.8"
+  }
+}

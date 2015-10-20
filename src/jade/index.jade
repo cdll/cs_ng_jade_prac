@@ -1,0 +1,14 @@
+doctype html
+html(ng-app)
+    head
+        title= 'todoMVC'
+        link(rel="stylesheet", href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+        script(src='/node_modules/angular/angular.min.js')
+        script(src='/js/app.js')
+    body
+        .container-fuild(ng-controller='TodoCtrl')
+            h1.text-info.text-center Todos
+                input#todoInput.center-block(ng-model='input')
+            dl.todoList(ng-repeat='item in todoList')
+                dd.todoItem(ng-model='item')
+    
