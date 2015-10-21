@@ -1,15 +1,11 @@
 (function() {
   var todoMod;
 
-  todoMod = angular.module('todoMod');
-
-  todoMod.controller('todoCtrl', [
-    '$scope', function($scope, todoServ) {
-      return $scope = todoServ;
+  todoMod = angular.module('todoMod').controller('todoCtrl', [
+    '$scope', 'todoServ', function($scope, todoServ) {
+      return $scope = todoServ.init();
     }
-  ]);
-
-  todoMod.service('todoServ', function(service) {
+  ]).service('todoServ', function(service) {
     var _input, _pushList, _todoList, init;
     if (service == null) {
       service = {};
@@ -18,20 +14,20 @@
     _todoList = [];
     _pushList = function(e) {
       if (e.which === 13 && !!this.input.trim()) {
-        this.todoList.push({
-          content: this.input,
+        service.todoList.push({
+          content: service.input,
           checked: 0
         });
-        return this.input = '';
+        service.input = '';
+        return service;
       }
     };
-    init = function() {
-      this.input = _input;
-      this.todoList = _todoList;
-      this.pushList = _pushList;
+    return init = function() {
+      service.input = _input;
+      service.todoList = _todoList;
+      service.pushList = _pushList;
       return service;
     };
-    return service;
   });
 
 }).call(this);
