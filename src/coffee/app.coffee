@@ -2,7 +2,6 @@ todoMod= angular.module 'todoMod', []
 .service 'todoServ', ->
     service= {}
     service.pushList= (e)->
-        console.info(e)
         if e.which==13 and !!service.input.trim()
             service.todoList.push {content: service.input.trim(), checked: 0}
             service.input= ''
@@ -29,4 +28,3 @@ todoMod= angular.module 'todoMod', []
         .getTodoList()
     $scope.pushList= todoServ.pushList
     $scope.todoRemove= todoServ.todoRemove
-    console.table $scope

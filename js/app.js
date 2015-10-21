@@ -5,7 +5,6 @@
     var service;
     service = {};
     service.pushList = function(e) {
-      console.info(e);
       if (e.which === 13 && !!service.input.trim()) {
         service.todoList.push({
           content: service.input.trim(),
@@ -43,8 +42,7 @@
       }
     ]).getTodoList();
     $scope.pushList = todoServ.pushList;
-    $scope.todoRemove = todoServ.todoRemove;
-    return console.table($scope);
+    return $scope.todoRemove = todoServ.todoRemove;
   });
 
 }).call(this);
