@@ -1,18 +1,14 @@
 todoMod= angular.module 'todoMod'
 todoMod.controller 'todoCtrl', ['$scope', ($scope, todoServ)->
-    console.info todoServ
+#    console.info todoServ
     $scope= todoServ
 ]
-todoMod.service 'todoServ', ->
-    service= {}
+todoMod.service 'todoServ', (service={})->
     _input= ''
     _todoList= []
     _pushList= (e)->
         if e.which==13 and !!this.input.trim()
-            _temp=
-                content: this.input
-                checked: 0
-            this.todoList.push _temp
+            this.todoList.push {content: this.input, checked: 0}
             this.input= ''
     init= ->
         this.input= _input

@@ -5,24 +5,23 @@
 
   todoMod.controller('todoCtrl', [
     '$scope', function($scope, todoServ) {
-      console.info(todoServ);
       return $scope = todoServ;
     }
   ]);
 
-  todoMod.service('todoServ', function() {
-    var _input, _pushList, _todoList, init, service;
-    service = {};
+  todoMod.service('todoServ', function(service) {
+    var _input, _pushList, _todoList, init;
+    if (service == null) {
+      service = {};
+    }
     _input = '';
     _todoList = [];
     _pushList = function(e) {
-      var _temp;
       if (e.which === 13 && !!this.input.trim()) {
-        _temp = {
+        this.todoList.push({
           content: this.input,
           checked: 0
-        };
-        this.todoList.push(_temp);
+        });
         return this.input = '';
       }
     };
