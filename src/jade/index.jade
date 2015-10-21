@@ -10,7 +10,7 @@ html(ng-app='todoMod')
         .container-fuild(ng-controller='todoCtrl')
             .col-xs-6.col-xs-offset-3
                 h1.text-info.text-center Todos
-                input#todoInput.col-xs-12(ng-model='input' ng-keydown='toList($event)' autofocus='autofocus' placeholder='what needs to be done?')
+                input#todoInput.col-xs-12(ng-model='input' ng-keydown='pushList($event)' autofocus='autofocus' placeholder='what needs to be done?')
                 dl.col-xs-12.todoList
                     dd.row.todoItem(ng-repeat='item in todoList track by $index')
                         h4
