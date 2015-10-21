@@ -1,33 +1,50 @@
 (function() {
   var todoMod;
 
-  todoMod = angular.module('todoMod').controller('todoCtrl', [
-    '$scope', 'todoServ', function($scope, todoServ) {
-      return $scope = todoServ.init();
-    }
-  ]).service('todoServ', function(service) {
-    var _input, _pushList, _todoList, init;
-    if (service == null) {
-      service = {};
-    }
-    _input = '';
-    _todoList = [];
-    _pushList = function(e) {
-      if (e.which === 13 && !!this.input.trim()) {
+  todoMod = angular.module('todoMod', []).service('todoServ', function() {
+    var service;
+    service = {};
+    service.pushList = function(e) {
+      console.info(e);
+      if (e.which === 13 && !!service.input.trim()) {
         service.todoList.push({
-          content: service.input,
+          content: service.input.trim(),
           checked: 0
         });
         service.input = '';
         return service;
       }
     };
-    return init = function() {
-      service.input = _input;
-      service.todoList = _todoList;
-      service.pushList = _pushList;
+    service.todoRemove = function(el) {
+      return service.todoList.splice(el, 1);
+    };
+    service.setInput = function(data) {
+      service.input = data;
       return service;
     };
+    service.getInput = function() {
+      return service.input;
+    };
+    service.setTodoList = function(arr) {
+      service.todoList = arr || [];
+      return service;
+    };
+    service.getTodoList = function() {
+      return service.todoList;
+    };
+    return service;
+  }).controller('todoCtrl', function($scope, todoServ) {
+    $scope = todoServ;
+    $scope.input = todoServ.setInput(0).getInput();
+    $scope.todoList = todoServ.setTodoList([
+      {
+        content: 'bello',
+        checked: 0
+      }
+    ]).getTodoList();
+    $scope.pushList = todoServ.pushList;
+    $scope.todoRemove = todoServ.todoRemove;
+    return console.table($scope);
   });
 
 }).call(this);
