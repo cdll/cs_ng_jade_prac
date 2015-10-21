@@ -9,7 +9,7 @@ todoMod= angular.module 'todoMod', []
             service
     service.todoRemove= (el)->
         service.todoList.splice el, 1
-#    public
+#    public api
     service.setInput= (data)->
         service.input= data
         service
@@ -30,16 +30,3 @@ todoMod= angular.module 'todoMod', []
     $scope.pushList= todoServ.pushList
     $scope.todoRemove= todoServ.todoRemove
     console.table $scope
-
-
-
-#todoMod.controller 'todoCtrl', ['$scope', ($scope)->
-#    $scope.input= ''
-#    $scope.todoList= []
-#    $scope.pushList= (e)->
-#        if e.which== 13 and !!$scope.input.trim()
-#            $scope.todoList.push {content: service.input.trim(), checked: 0}
-#            $scope.input= ''
-#    $scope.todoRemove= (el)->
-#        $scope.todoList.splice el, 1
-#]
