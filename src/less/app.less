@@ -1,0 +1,17 @@
+.input-check{
+    &:checked+.text-success{
+        color: firebrick;
+        text-decoration: line-through;
+    }
+}
+.lable-ckbox{
+    &:hover .delete-x{
+        opacity: .9;
+    }
+    .delete-x{
+        color: darkred;
+        transform: scaleY(.75) scaleX(1.05);
+        cursor: pointer;
+        opacity: 0;
+    }
+}

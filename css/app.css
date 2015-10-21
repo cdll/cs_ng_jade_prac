@@ -1,3 +1,13 @@
-.input-check:checked+.text-success{color: firebrick;text-decoration: line-through;}
-.delete-x{color: darkred;transform: scaleY(.75) scaleX(1.05);cursor: pointer;opacity: 0;}
-.lable-ckbox:hover .delete-x{opacity: .9;}
+.input-check:checked + .text-success {
+  color: firebrick;
+  text-decoration: line-through;
+}
+.lable-ckbox:hover .delete-x {
+  opacity: .9;
+}
+.lable-ckbox .delete-x {
+  color: darkred;
+  transform: scaleY(0.75) scaleX(1.05);
+  cursor: pointer;
+  opacity: 0;
+}
