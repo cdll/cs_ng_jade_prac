@@ -1,21 +1,27 @@
 doctype html
 html(ng-app='todoMod')
-    head
-        title= 'todoMVC'
-        link(rel="stylesheet", href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
-        link(rel="stylesheet", href='/css/app.css')
-        script(src='/node_modules/angular/angular.min.js')
-        script(src='/js/app.js')
-    body
-        .container-fuild(ng-controller='todoCtrl')
-            .col-xs-6.col-xs-offset-3
-                h1.text-info.text-center Todos
-                input#todoInput.col-xs-12(ng-model='input' ng-keydown='pushList($event)' autofocus='autofocus' placeholder='what needs to be done?')
-                dl.col-xs-12.todoList
-                    dd.row.todoItem(ng-repeat='item in todoList track by $index')
-                        h4
-                            lable.center-block.lable-ckbox
-                                input.col-xs-1.input-check(type='checkbox' ng-model='item.checked')
-                                span.text-success(ng-bind='item.content')
-                                .col-xs-1.pull-right.delete-x(ng-click='todoRemove($index)') X
+  head
+    title= 'todoMVC'
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no")
+    link(rel="stylesheet", href='../bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel="stylesheet", href='../css/app.css')
+  body
+    .container-fuild.main-container(ng-controller='todoCtrl')
+      .col-xs-6.col-xs-offset-3
+          h1.text-info.text-center Todos
+          input#todoInput.col-xs-12.input-text(ng-model='input' ng-keydown='pushList($event)' autofocus='autofocus' placeholder='what needs to be done?')
+          dl.col-xs-12.todoList
+            dd.row.todoItem(ng-repeat='item in todoList track by $index')
+              h4
+                lable.center-block.lable-ckbox
+                  input.col-xs-1.input-check(type='checkbox' ng-model='item.checked')
+                  span.text-success(ng-bind='item.content')
+                  .col-xs-1.pull-right.delete-x(ng-click='todoRemove($index)') X
+            .clear
+        .clear
+      .clear
+    footer.hide.footer.clear.container-fluid.text-center.text-warning 我是处在页面最底部的footer，不是窗口最底部哦～
+    script(src='../node_modules/angular/angular.min.js')
+    script(src='../js/app.js')
     

@@ -4,6 +4,8 @@
   todoMod = angular.module('todoMod', []).service('todoServ', function() {
     var service;
     service = {
+      input: '',
+      todoList: JSON.parse(localStorage.todo_list) || [],
       pushList: function(e) {
         var _temp, _todo_list;
         if (e.which === 13 && this.input.trim()) {
@@ -48,8 +50,8 @@
     };
     return service;
   }).controller('todoCtrl', function($scope, todoServ) {
-    $scope.input = todoServ.setInput().getInput();
-    $scope.todoList = todoServ.setTodoList().getTodoList();
+    $scope.input = todoServ.getInput();
+    $scope.todoList = todoServ.getTodoList();
     $scope.pushList = todoServ.pushList;
     return $scope.todoRemove = todoServ.todoRemove;
   });

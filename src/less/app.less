@@ -1,17 +1,36 @@
-.input-check{
-    &:checked+.text-success{
-        color: firebrick;
-        text-decoration: line-through;
+html{
+  height: 100%;
+  body{
+    min-height: 100%;
+    footer{
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(skyblue, lightgreen);
+      padding: 1em 0;
+      width: 100%;
     }
+    main-container{
+      overflow: hidden;
+    }
+  }
+}
+.input-text{
+  padding: .5em 15px;
+}
+.input-check{
+  &:checked+.text-success{
+    color: firebrick;
+    text-decoration: line-through;
+  }
 }
 .lable-ckbox{
-    &:hover .delete-x{
-        opacity: .9;
-    }
-    .delete-x{
-        color: darkred;
-        transform: scaleY(.75) scaleX(1.05);
-        cursor: pointer;
-        opacity: 0;
-    }
+  &:hover .delete-x{
+    opacity: .9;
+  }
+  .delete-x{
+    color: darkred;
+    transform: scaleY(.75) scaleX(1.05);
+    cursor: pointer;
+    opacity: 0;
+  }
 }
